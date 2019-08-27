@@ -1,4 +1,9 @@
 
+### React configuration file exposure
+```
+cnpm run eject
+```
+
 ### Installation dependency
 ```
 yarn install
