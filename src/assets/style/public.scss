@@ -1,3 +1,21 @@
 .name {
     color: red;
 }
+
+.nav {
+    display: flex;
+    list-style: none;
+
+    li {
+        padding: 0 15px;
+    }
+
+    .activeted {
+        color: #fff;
+        background: #f60;
+
+        a {
+            color: #fff
+        }
+    }
+}
