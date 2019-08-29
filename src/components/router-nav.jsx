@@ -2,25 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default class Router extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isSelect: 0
-        }
-    }
-    componentDidMount() {
-        if (sessionStorage.getItem("navIndex")) {
-            this.setState({
-                isSelect: Number.parseInt(sessionStorage.getItem("navIndex"))
-            });
-        }
-    }
-    onSetCur(index) {
-        sessionStorage.setItem('navIndex', index)
-        this.setState({
-            isSelect: Number.parseInt(index)
-        });
-    }
     render() {
         let navs = [
             {
@@ -31,6 +12,7 @@ export default class Router extends React.Component {
                 path: "/cs/123456/789",
                 name: 'Csasd'
             }
+
         ]
         return (
             <div>
@@ -38,8 +20,8 @@ export default class Router extends React.Component {
                     {
                         navs.map((item, index) => {
                             return (
-                                <li key={index} index={index} className={this.state.isSelect === index ? 'activeted' : ''} onClick={() => this.onSetCur(index)}>
-                                    <NavLink to={item.path}>{item.name}</NavLink>
+                                <li key={index}>
+                                    <NavLink exact to={item.path} activeClassName="activeted">{item.name}</NavLink>
                                 </li>
                             )
                         })

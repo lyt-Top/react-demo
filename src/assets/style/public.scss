@@ -5,6 +5,8 @@
 .nav {
     display: flex;
     list-style: none;
+    position: relative;
+    z-index: 2;
 
     li {
         padding: 0 15px;
