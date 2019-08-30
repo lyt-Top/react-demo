@@ -44,3 +44,11 @@
 .input {
   margin-left: 15px;
 }
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}

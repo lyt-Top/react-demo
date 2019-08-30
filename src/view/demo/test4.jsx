@@ -5,12 +5,6 @@ export default class TestFour extends React.Component {
         super(props)
         this.textInput = React.createRef()
     }
-    componentWillMount() {
-        console.log(111111111111)
-    }
-    componentDidMount() {
-        console.log(222222222222)
-    }
     onFocusTextInput() {
         this.textInput.current.focus()
     }

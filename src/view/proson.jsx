@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import Init from '../components/init'
 import TestOne from './demo/test1'
 import TestTwo from './demo/test2'
+import TestFive from './demo/test5'
 // import TestFour from './demo/test4'
 const TestFour = React.lazy(() => import('./demo/test4'))
 
@@ -47,8 +48,9 @@ class Proson extends React.Component {
     }
     render() {
         let style = { "color": "red", "cursor": "pointer" };
+        let bg = { background: "white" };
         return (
-            <div>
+            <div style={bg}>
                 <p onClick={this.onFaterClick.bind(this)} style={style}>hello man</p>
                 {this.props.name}
                 <Init lyts={this.state.userMessage} />
@@ -57,6 +59,7 @@ class Proson extends React.Component {
                 <Suspense fallback={<div>Loading...</div>}>
                     <TestFour />
                 </Suspense>
+                <TestFive></TestFive>
             </div>
         )
     }

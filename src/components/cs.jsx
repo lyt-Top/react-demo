@@ -1,137 +1,32 @@
 import React from 'react'
-import { TabBar } from 'antd-mobile';
-import BlueTab from './Tab/blueTab'
-import RedTab from './Tab/redTab'
-import GreenTab from './Tab/greenTab'
-import YellowTab from './Tab/yellowTab'
+import { NoticeBar, WhiteSpace, Toast } from 'antd-mobile';
+import { NavLink } from 'react-router-dom'
 
 export default class CS extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            selectedTab: 'blueTab'
-        };
+            visible: false
+        }
+    }
+    componentWillMount() {
+        Toast.loading('Loading...', 2, () => {
+            this.setState({
+                visible: true
+            })
+        });
     }
 
     render() {
-        let content;
-        if (this.state.selectedTab === 'blueTab') {
-            content = (<BlueTab />)
-        } else if (this.state.selectedTab === 'redTab') {
-            content = (<RedTab />)
-        } else if (this.state.selectedTab === 'greenTab') {
-            content = (<GreenTab />)
-        } else {
-            content = (<YellowTab />)
-        }
         return (
-            <div>
-                {content}
-                <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
-                    <TabBar
-                        unselectedTintColor="#949494"
-                        tintColor="#33A3F4"
-                        barTintColor="white"
-                        tabBarPosition="bottom"
-                    >
-                        <TabBar.Item
-                            title="Life"
-                            key="Life"
-                            icon={<div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
-                            }}
-                            />
-                            }
-                            selectedIcon={<div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
-                            }}
-                            />
-                            }
-                            selected={this.state.selectedTab === 'blueTab'}
-                            badge={1}
-                            onPress={() => {
-                                this.setState({
-                                    selectedTab: 'blueTab',
-                                });
-                            }}
-                            data-seed="logId"
-                        >
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
-                                }}
-                                />
-                            }
-                            selectedIcon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
-                                }}
-                                />
-                            }
-                            title="Koubei"
-                            key="Koubei"
-                            badge={'new'}
-                            selected={this.state.selectedTab === 'redTab'}
-                            onPress={() => {
-                                this.setState({
-                                    selectedTab: 'redTab',
-                                });
-                            }}
-                            data-seed="logId1"
-                        >
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
-                                }}
-                                />
-                            }
-                            selectedIcon={
-                                <div style={{
-                                    width: '22px',
-                                    height: '22px',
-                                    background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
-                                }}
-                                />
-                            }
-                            title="Friend"
-                            key="Friend"
-                            dot
-                            selected={this.state.selectedTab === 'greenTab'}
-                            onPress={() => {
-                                this.setState({
-                                    selectedTab: 'greenTab',
-                                });
-                            }}
-                        >
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                            selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
-                            title="My"
-                            key="my"
-                            selected={this.state.selectedTab === 'yellowTab'}
-                            onPress={() => {
-                                this.setState({
-                                    selectedTab: 'yellowTab',
-                                });
-                            }}
-                        >
-                        </TabBar.Item>
-                    </TabBar>
+            <div style={{ position: 'relative', zIndex: 9999 }}>
+                <div className={this.state.visible ? 'show' : 'hidden'}>
+                    <WhiteSpace size="lg" />
+                    <NoticeBar marqueeProps={{ loop: true, style: { padding: '0 7.5px' } }}>
+                        Notice: The arrival time of incomes and transfers of Yu &#39;E Bao will be delayed during National Day.
+                        </NoticeBar>
+                    <WhiteSpace size="lg" />
+                    <NavLink to="/subpage" exact>subpage jump</NavLink>
                 </div>
             </div>
         )

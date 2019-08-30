@@ -11,3 +11,69 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(100%, 0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeftOut {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRightOut {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+}
+
+/* 帧动画 */
+.slide-left-enter-active {
+  animation: slideInLeft 0.5s forwards;
+}
+
+.slide-left-exit-active {
+  animation: slideLeftOut 0.5s forwards;
+}
+
+.slide-right-enter-active {
+  animation: slideInRight 0.5s forwards;
+}
+
+.slide-right-exit-active {
+  animation: slideRightOut 0.5s forwards;
+}

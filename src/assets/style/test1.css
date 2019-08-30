@@ -1,8 +1,30 @@
 /* 这是全局的 */
-.warp li{
+.warp li {
     cursor: pointer;
 }
+
 .warp li:hover {
     color: #09F;
     text-decoration: underline;
+}
+
+.warps {
+    display: flex;
+    height: 100px;
+    margin: 15px 0;
+}
+
+.left {
+    flex-basis: 6rem;
+    background: blue;
+}
+
+.center {
+    flex: 1;
+    background: #09F;
+}
+
+.right {
+    flex-basis: 6rem;
+    background: yellow;
 }

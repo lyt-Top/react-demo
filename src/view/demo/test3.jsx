@@ -1,5 +1,5 @@
 import React from 'react'
-import Axios from 'axios'
+// import Axios from 'axios'
 
 class UserGist extends React.Component {
     constructor(props) {
@@ -9,11 +9,11 @@ class UserGist extends React.Component {
         }
     }
     componentDidMount() {
-        Axios.get(this.props.source).then(res => {
-            this.setState({
-                userArr: res.data
-            })
-        })
+        // Axios.get(this.props.source).then(res => {
+        //     this.setState({
+        //         userArr: res.data
+        //     })
+        // })
     }
     render() {
         return (

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.animated-router-in-transition {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.animated-router-forward-enter {
+  transform: translate3d(100%, 0, 0);
+}
+
+.animated-router-forward-enter-active {
+  transform: translate3d(0, 0, 0);
+}
+
+.animated-router-forward-exit {
+  transform: translate3d(0, 0, 0);
+}
+
+.animated-router-forward-exit-active {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.animated-router-backward-enter {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.animated-router-backward-enter-active {
+  transform: translate3d(0, 0, 0);
+}
+
+.animated-router-backward-exit {
+  transform: translate3d(0, 0, 0);
+}
+
+.animated-router-backward-exit-active {
+  transform: translate3d(100%, 0, 0);
+}
+
+.animated-router-forward-enter-active,
+.animated-router-forward-exit-active,
+.animated-router-backward-enter-active,
+.animated-router-backward-exit-active {
+  transition: transform 0.3s ease;
+}
+
+.animated-router-forward-exit,
+.animated-router-backward-exit {
+  position: absolute !important;
+  width: 100%;
+  top: 0;
+  left: 0;
+}

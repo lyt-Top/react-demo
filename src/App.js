@@ -3,17 +3,32 @@ import './App.css';
 import Test from "./view/proson"
 import Cs from './components/cs'
 import RouterNav from './components/router-nav'
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import NavBar from './components/nav-bar'
+// import AnimatedSwitch from './components/animatedSwitch'
+import { Route, BrowserRouter } from 'react-router-dom';
+import AnimatedRouter from 'react-animated-router';
+
+import BlueTab from './components/Tab/blueTab'
+import RedTab from './components/Tab/redTab'
+import GreenTab from './components/Tab/greenTab'
+import YellowTab from './components/Tab/yellowTab'
+import Subpage from './view/demo/test6'
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <RouterNav></RouterNav>
-        <Switch>
+        <AnimatedRouter>
           <Route exact path="/" component={Test}></Route>
           <Route exact path="/cs/:id/:name" component={Cs}></Route>
-        </Switch>
+          <Route exact path="/blueTab" component={BlueTab}></Route>
+          <Route exact path="/redTab" component={RedTab}></Route>
+          <Route exact path="/greenTab" component={GreenTab}></Route>
+          <Route exact path="/yellowTab" component={YellowTab}></Route>
+          <Route exact path="/subpage" component={Subpage}></Route>
+        </AnimatedRouter>
+        <NavBar></NavBar>
       </BrowserRouter>
     )
   }
